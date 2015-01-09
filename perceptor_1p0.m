@@ -2,20 +2,24 @@ n = 1e3;
 
 % generate (x,y)
 RawData = 1*(unidrnd(2,1,n)-1); %between 0 and 1
-x = 2*(RawData -0.5) + normrnd(0,0.2, 1, n);
-RawData(1:10)
-% figure;plot(x,'.');
+x = 2*(RawData -0.5) + normrnd(0,0.6, 1, n);
+RawData(1:10)  
+% figure;plot(x,'.');  
 
 % training perceptor
-theta = ones(1,n); theta(1) = 1;
+
+NumIter = 100;
+theta = ones(1,NumIter); theta(1) = 1;
 mu = 0.05;
-gradient = zeros(1,n);
-h = zeros(1,n);
-for i=2:n
-    h(i) = sigmoid(theta(i)*x(i));
-%     gradient(i) = RawData(i)*(1-h(i)) - (1-RawData(i))*h(i);
-    gradient(i) = (RawData(i) - h(i))*x(i);  %be care of the gradient
-    theta(i+1) = theta(i) + mu*gradient(i);
+gradient = zeros(1,NumIter);
+h = zeros(1,NumIter);
+for nIter = 2:NumIter-1
+    for i=2:n
+        h(i) = sigmoid(theta(nIter)*x(i));
+        %     gradient(i) = RawData(i)*(1-h(i)) - (1-RawData(i))*h(i);
+        gradient(nIter) = gradient(nIter) + (RawData(i) - h(i))*x(i);  %be care of the gradient
+    end
+    theta(nIter+1) = theta(nIter) + mu*gradient(nIter);
 end
 
 figure;
