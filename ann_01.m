@@ -108,5 +108,5 @@ end;
 figure; title('init H');
 subplot(3,1,1); plot(x_axis, H); grid on; 
 subplot(3,1,2); plot(x_axis, o1(1:length(H))); grid on; 
-subplot(3,1,3); plot(x_axis, o2(1:length(H))); grid on; 
+subplot(3,1,3); plot(x_axis, o2(1:length(H))); grid on;  
 
