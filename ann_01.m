@@ -1,6 +1,6 @@
 clear all;
 n = 2e2;
-NumIter = 1e3;
+NumIter = 9e2;
 
 % generate (x,y)
 offset = 1.5;
@@ -18,7 +18,7 @@ t1_22 = ones(1,NumIter)*-5;
 t2_01 = ones(1,NumIter)*-2; 
 t2_11 = ones(1,NumIter)*2; 
 t2_21 = ones(1,NumIter)*2; 
-mu = 0.03;
+mu = 0.07;
 g1_11 = zeros(1,NumIter); %gradient
 g1_12 = zeros(1,NumIter); 
 g1_21 = zeros(1,NumIter); 
